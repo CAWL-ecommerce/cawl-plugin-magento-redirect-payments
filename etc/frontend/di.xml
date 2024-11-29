@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="worldline_redirect_payment_config_provider" xsi:type="object">Worldline\RedirectPayment\Ui\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Vault\Model\Ui\TokensConfigProvider">
+        <arguments>
+            <argument name="tokenUiComponentProviders" xsi:type="array">
+                <item name="worldline_redirect_payment" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_1" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_2" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_3" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_56" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_117" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_125" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_130" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_132" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_3012" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+                <item name="worldline_redirect_payment_771" xsi:type="object">Worldline\RedirectPayment\Ui\TokenUiComponentProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="Cawl_RedirectPayment::layout_processor"
+                type="Worldline\RedirectPayment\Plugin\Magento\Checkout\Block\Checkout\LayoutProcessor\PaymentsLayoutProcessor"
+                sortOrder="50"/>
+    </type>
+</config>
