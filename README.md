@@ -5,7 +5,7 @@
 [![M2 Coding Standard](https://github.com/wl-online-payments-direct/plugin-magento-redirect-payments/actions/workflows/coding-standard.yml/badge.svg?branch=develop)](https://github.com/wl-online-payments-direct/plugin-magento-redirect-payments/actions/workflows/coding-standard.yml)
 [![M2 Mess Detector](https://github.com/wl-online-payments-direct/plugin-magento-redirect-payments/actions/workflows/mess-detector.yml/badge.svg?branch=develop)](https://github.com/wl-online-payments-direct/plugin-magento-redirect-payments/actions/workflows/mess-detector.yml)
 
-This module is an extension of the [hosted checkout](https://github.com/wl-online-payments-direct/plugin-magento-hostedcheckout) Cawl payment solution.
+This module is an extension of the [hosted checkout](https://github.com/Worldline-Plugins/cawl-plugin-magento-hostedcheckout) Cawl payment solution.
 
 To install this solution, you may use
 [adobe commerce marketplace](https://marketplace.magento.com/worldline-module-magento-payment.html)
