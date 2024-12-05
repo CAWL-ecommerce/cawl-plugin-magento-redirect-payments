@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Test\Integration\Settings;
+namespace Cawl\RedirectPayment\Test\Integration\Settings;
 
 use Magento\Customer\Model\Session;
 use Magento\Payment\Model\MethodList;
@@ -9,9 +9,9 @@ use Magento\Quote\Api\Data\CartInterface;
 use Magento\Quote\Model\ResourceModel\Quote\CollectionFactory as QuoteCollectionFactory;
 use Magento\TestFramework\Helper\Bootstrap;
 use PHPUnit\Framework\TestCase;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\PaymentCore\Infrastructure\ActiveVault\FakePaymentToken;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Infrastructure\ActiveVault\FakePaymentToken;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
 
 /**
  * Test cases for configuration "Payment enabled/disabled vault"

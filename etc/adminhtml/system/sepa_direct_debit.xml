@@ -47,7 +47,7 @@
         </field>
         <field id="allow_specific_currency" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" canRestore="1">
             <label>Payment from Applicable Currencies</label>
-            <source_model>Worldline\PaymentCore\Model\Config\Source\AllSpecificCurrencies</source_model>
+            <source_model>Cawl\PaymentCore\Model\Config\Source\AllSpecificCurrencies</source_model>
             <config_path>payment/worldline_redirect_payment_771/allow_specific_currency</config_path>
             <depends>
                 <field id="active">1</field>
@@ -81,7 +81,7 @@
         </field>
         <field id="direct_debit_recurrence_type" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1">
             <label>Direct Debit Recurrence Type</label>
-            <source_model>Worldline\HostedCheckout\Config\Source\DirectDebit\RecurrenceType</source_model>
+            <source_model>Cawl\HostedCheckout\Config\Source\DirectDebit\RecurrenceType</source_model>
             <config_path>payment/worldline_redirect_payment_771/direct_debit_recurrence_type</config_path>
             <depends>
                 <field id="active">1</field>
@@ -89,7 +89,7 @@
         </field>
         <field id="direct_debit_signature_type" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1">
             <label>Direct Debit Signature Type</label>
-            <source_model>Worldline\HostedCheckout\Config\Source\DirectDebit\SignatureType</source_model>
+            <source_model>Cawl\HostedCheckout\Config\Source\DirectDebit\SignatureType</source_model>
             <config_path>payment/worldline_redirect_payment_771/direct_debit_signature_type</config_path>
             <depends>
                 <field id="active">1</field>

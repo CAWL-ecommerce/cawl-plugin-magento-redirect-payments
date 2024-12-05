@@ -47,7 +47,7 @@
         </field>
         <field id="allow_specific_currency" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" canRestore="1">
             <label>Payment from Applicable Currencies</label>
-            <source_model>Worldline\PaymentCore\Model\Config\Source\AllSpecificCurrencies</source_model>
+            <source_model>Cawl\PaymentCore\Model\Config\Source\AllSpecificCurrencies</source_model>
             <config_path>payment/worldline_redirect_payment_5408/allow_specific_currency</config_path>
             <depends>
                 <field id="active">1</field>
@@ -81,7 +81,7 @@
         </field>
         <field id="bank_transfer_mode" translate="label tooltip" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
             <label>Bank Transfer by Cawl - Mode</label>
-            <source_model>Worldline\PaymentCore\Model\Config\Source\BankTransferModes</source_model>
+            <source_model>Cawl\PaymentCore\Model\Config\Source\BankTransferModes</source_model>
             <config_path>payment/worldline_redirect_payment_5408/bank_transfer_mode</config_path>
             <tooltip><![CDATA[Select which modes of bank transfer you want to allow."Instant Payments Only" : Receive transfer confirmation within 20 minutes. Limits customer bank choices to only those supporting instant payments."Standard & Instant Payments" : Accept transfers from all banks. Broader customer bank choice but it can take up to 96 hours for transfer confirmation.]]></tooltip>
             <depends>

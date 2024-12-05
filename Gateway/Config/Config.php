@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Gateway\Config;
+namespace Cawl\RedirectPayment\Gateway\Config;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Payment\Gateway\Config\Config as PaymentGatewayConfig;
 use Magento\Store\Model\ScopeInterface;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
 
 class Config extends PaymentGatewayConfig
 {

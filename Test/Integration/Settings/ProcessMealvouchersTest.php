@@ -1,18 +1,18 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Test\Integration\Settings;
+namespace Cawl\RedirectPayment\Test\Integration\Settings;
 
 use Magento\Quote\Api\Data\CartInterface;
 use Magento\TestFramework\Helper\Bootstrap;
 use OnlinePayments\Sdk\Domain\Order;
 use PHPUnit\Framework\TestCase;
-use Worldline\HostedCheckout\Model\Config\Source\MealvouchersProductTypes;
-use Worldline\HostedCheckout\Service\CreateHostedCheckoutRequest\OrderDataBuilder;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\PaymentCore\Api\QuoteResourceInterface;
-use Worldline\PaymentCore\Api\Test\Infrastructure\ServiceStubSwitcherInterface;
+use Cawl\HostedCheckout\Model\Config\Source\MealvouchersProductTypes;
+use Cawl\HostedCheckout\Service\CreateHostedCheckoutRequest\OrderDataBuilder;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Api\QuoteResourceInterface;
+use Cawl\PaymentCore\Api\Test\Infrastructure\ServiceStubSwitcherInterface;
 
 /**
  * Test cases for configuration "Process Mealvouchers"

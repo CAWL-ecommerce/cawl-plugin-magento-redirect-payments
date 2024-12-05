@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\WebApi\CreatePaymentManagement;
+namespace Cawl\RedirectPayment\WebApi\CreatePaymentManagement;
 
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Quote\Api\Data\PaymentInterface;
-use Worldline\PaymentCore\Api\Data\QuotePaymentInterface;
-use Worldline\PaymentCore\Model\DataAssigner\DataAssignerInterface;
+use Cawl\PaymentCore\Api\Data\QuotePaymentInterface;
+use Cawl\PaymentCore\Model\DataAssigner\DataAssignerInterface;
 
 class PaymentProductIdAssigner implements DataAssignerInterface
 {

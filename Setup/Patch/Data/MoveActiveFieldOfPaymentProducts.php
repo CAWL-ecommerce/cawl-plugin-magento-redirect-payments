@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Setup\Patch\Data;
+namespace Cawl\RedirectPayment\Setup\Patch\Data;
 
 use Magento\Framework\App\Cache\Manager;
 use Magento\Framework\App\Cache\Type\Config as CacheTypeConfig;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Psr\Log\LoggerInterface;
-use Worldline\RedirectPayment\Gateway\Config\Config;
+use Cawl\RedirectPayment\Gateway\Config\Config;
 
 class MoveActiveFieldOfPaymentProducts implements DataPatchInterface
 {

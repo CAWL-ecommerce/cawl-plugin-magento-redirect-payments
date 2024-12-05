@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Test\Integration\Settings;
+namespace Cawl\RedirectPayment\Test\Integration\Settings;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Payment\Model\MethodList;
@@ -11,8 +11,8 @@ use Magento\Quote\Model\ResourceModel\Quote;
 use Magento\Quote\Model\ResourceModel\Quote\CollectionFactory as QuoteCollectionFactory;
 use Magento\TestFramework\Helper\Bootstrap;
 use PHPUnit\Framework\TestCase;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
 
 /**
  * Test cases for configurations "Minimum Order Total" and "Maximum Order Total"

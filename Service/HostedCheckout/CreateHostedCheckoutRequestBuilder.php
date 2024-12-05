@@ -1,21 +1,21 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Service\HostedCheckout;
+namespace Cawl\RedirectPayment\Service\HostedCheckout;
 
 use Magento\Quote\Api\Data\CartInterface;
 use OnlinePayments\Sdk\Domain\CreateHostedCheckoutRequest;
 use OnlinePayments\Sdk\Domain\CreateHostedCheckoutRequestFactory;
-use Worldline\HostedCheckout\Service\CreateHostedCheckoutRequest\OrderDataBuilder;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\PaymentCore\Api\Ui\PaymentProductsProviderInterface;
-use Worldline\RedirectPayment\Gateway\Config\Config;
-use Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest\CardPaymentMethodSIDBuilder;
-use Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest\MobilePaymentMethodSpecificInputDataBuilder;
-use Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest\RedirectPaymentMethodSpecificInputDataBuilder;
-use Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest\SepaDirectDebitSIBuilder;
-use Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest\SpecificInputDataBuilder;
-use Worldline\RedirectPayment\WebApi\RedirectManagement;
+use Cawl\HostedCheckout\Service\CreateHostedCheckoutRequest\OrderDataBuilder;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Api\Ui\PaymentProductsProviderInterface;
+use Cawl\RedirectPayment\Gateway\Config\Config;
+use Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest\CardPaymentMethodSIDBuilder;
+use Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest\MobilePaymentMethodSpecificInputDataBuilder;
+use Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest\RedirectPaymentMethodSpecificInputDataBuilder;
+use Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest\SepaDirectDebitSIBuilder;
+use Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest\SpecificInputDataBuilder;
+use Cawl\RedirectPayment\WebApi\RedirectManagement;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest;
+namespace Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest;
 
 use Magento\Framework\Locale\Resolver;
 use Magento\Quote\Api\Data\CartInterface;
@@ -11,11 +11,11 @@ use OnlinePayments\Sdk\Domain\PaymentProductFilter;
 use OnlinePayments\Sdk\Domain\PaymentProductFilterFactory;
 use OnlinePayments\Sdk\Domain\PaymentProductFiltersHostedCheckout;
 use OnlinePayments\Sdk\Domain\PaymentProductFiltersHostedCheckoutFactory;
-use Worldline\HostedCheckout\Service\CreateHostedCheckoutRequest\SpecificInputDataBuilder as HCSpecificInputDataBuilder;
-use Worldline\PaymentCore\Api\Config\GeneralSettingsConfigInterface;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\RedirectPayment\Gateway\Config\Config;
-use Worldline\RedirectPayment\WebApi\RedirectManagement;
+use Cawl\HostedCheckout\Service\CreateHostedCheckoutRequest\SpecificInputDataBuilder as HCSpecificInputDataBuilder;
+use Cawl\PaymentCore\Api\Config\GeneralSettingsConfigInterface;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\RedirectPayment\Gateway\Config\Config;
+use Cawl\RedirectPayment\WebApi\RedirectManagement;
 
 class SpecificInputDataBuilder
 {

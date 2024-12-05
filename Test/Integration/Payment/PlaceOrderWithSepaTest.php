@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Test\Integration\Payment;
+namespace Cawl\RedirectPayment\Test\Integration\Payment;
 
 use Magento\Customer\Model\Session;
 use Magento\Quote\Api\Data\CartInterface;
 use Magento\TestFramework\Helper\Bootstrap;
 use PHPUnit\Framework\TestCase;
-use Worldline\RedirectPayment\Service\HostedCheckout\CreateHostedCheckoutRequestBuilder;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\PaymentCore\Api\QuoteResourceInterface;
-use Worldline\PaymentCore\Api\Test\Infrastructure\ServiceStubSwitcherInterface;
-use Worldline\PaymentCore\Infrastructure\ActiveVault\FakePaymentToken;
-use Worldline\RedirectPayment\WebApi\RedirectManagement;
+use Cawl\RedirectPayment\Service\HostedCheckout\CreateHostedCheckoutRequestBuilder;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Api\QuoteResourceInterface;
+use Cawl\PaymentCore\Api\Test\Infrastructure\ServiceStubSwitcherInterface;
+use Cawl\PaymentCore\Infrastructure\ActiveVault\FakePaymentToken;
+use Cawl\RedirectPayment\WebApi\RedirectManagement;
 
 /**
  * Test case about place order with sepa payment

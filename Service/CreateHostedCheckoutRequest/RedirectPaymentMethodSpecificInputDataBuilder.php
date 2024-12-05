@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest;
+namespace Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest;
 
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInputFactory;
 use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5408SpecificInputFactory;
-use Worldline\RedirectPayment\Gateway\Config\Config;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
-use Worldline\RedirectPayment\WebApi\RedirectManagement;
+use Cawl\RedirectPayment\Gateway\Config\Config;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
+use Cawl\RedirectPayment\WebApi\RedirectManagement;
 
 class RedirectPaymentMethodSpecificInputDataBuilder
 {

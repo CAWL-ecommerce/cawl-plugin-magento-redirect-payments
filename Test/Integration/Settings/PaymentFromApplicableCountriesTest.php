@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Test\Integration\Settings;
+namespace Cawl\RedirectPayment\Test\Integration\Settings;
 
 use Magento\Payment\Model\MethodList;
 use Magento\Quote\Api\Data\CartInterface;

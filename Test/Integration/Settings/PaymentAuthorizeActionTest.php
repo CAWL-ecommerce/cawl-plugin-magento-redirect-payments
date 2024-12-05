@@ -1,20 +1,20 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Test\Integration\Settings;
+namespace Cawl\RedirectPayment\Test\Integration\Settings;
 
 use Magento\Quote\Api\Data\CartInterface;
 use Magento\Sales\Api\Data\OrderInterfaceFactory;
 use Magento\TestFramework\Helper\Bootstrap;
 use PHPUnit\Framework\TestCase;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\RedirectPayment\Gateway\Config\Config;
-use Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest\CardPaymentMethodSIDBuilder;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
-use Worldline\PaymentCore\Api\QuoteResourceInterface;
-use Worldline\PaymentCore\Api\Test\Infrastructure\ServiceStubSwitcherInterface;
-use Worldline\PaymentCore\Api\Test\Infrastructure\WebhookStubSenderInterface;
-use Worldline\PaymentCore\Infrastructure\StubData\Webhook\Authorization;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\RedirectPayment\Gateway\Config\Config;
+use Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest\CardPaymentMethodSIDBuilder;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
+use Cawl\PaymentCore\Api\QuoteResourceInterface;
+use Cawl\PaymentCore\Api\Test\Infrastructure\ServiceStubSwitcherInterface;
+use Cawl\PaymentCore\Api\Test\Infrastructure\WebhookStubSenderInterface;
+use Cawl\PaymentCore\Infrastructure\StubData\Webhook\Authorization;
 
 /**
  * Test cases for configuration "Payment Action" and "Authorization Mode"

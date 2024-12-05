@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest;
+namespace Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest;
 
 use Magento\Quote\Api\Data\CartInterface;
 use OnlinePayments\Sdk\Domain\MobilePaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\MobilePaymentMethodSpecificInputFactory;
-use Worldline\RedirectPayment\Gateway\Config\Config;
-use Worldline\RedirectPayment\WebApi\RedirectManagement;
+use Cawl\RedirectPayment\Gateway\Config\Config;
+use Cawl\RedirectPayment\WebApi\RedirectManagement;
 
 class MobilePaymentMethodSpecificInputDataBuilder
 {

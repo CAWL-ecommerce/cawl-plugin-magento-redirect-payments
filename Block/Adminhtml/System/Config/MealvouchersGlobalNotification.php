@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Block\Adminhtml\System\Config;
+namespace Cawl\RedirectPayment\Block\Adminhtml\System\Config;
 
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;

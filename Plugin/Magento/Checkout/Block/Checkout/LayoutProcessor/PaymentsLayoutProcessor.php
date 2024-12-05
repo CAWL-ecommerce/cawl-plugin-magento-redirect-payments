@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Plugin\Magento\Checkout\Block\Checkout\LayoutProcessor;
+namespace Cawl\RedirectPayment\Plugin\Magento\Checkout\Block\Checkout\LayoutProcessor;
 
 use Magento\Checkout\Block\Checkout\LayoutProcessor;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
 
 class PaymentsLayoutProcessor
 {

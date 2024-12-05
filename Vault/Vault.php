@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Vault;
+namespace Cawl\RedirectPayment\Vault;
 
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\ObjectManagerInterface;
@@ -14,8 +14,8 @@ use Magento\Quote\Api\Data\CartInterface;
 use Magento\Sales\Api\Data\OrderPaymentExtensionInterfaceFactory;
 use Magento\Vault\Api\PaymentTokenManagementInterface;
 use Magento\Vault\Model\Method\Vault as MagentoVault;
-use Worldline\RedirectPayment\Gateway\Config\Config;
-use Worldline\PaymentCore\Api\VaultValidationInterface;
+use Cawl\RedirectPayment\Gateway\Config\Config;
+use Cawl\PaymentCore\Api\VaultValidationInterface;
 
 /**
  * @SuppressWarnings(PHPMD.ExcessiveParameterList)

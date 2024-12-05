@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest;
+namespace Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest;
 
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use OnlinePayments\Sdk\Domain\SepaDirectDebitPaymentMethodSpecificInputBase;
 use OnlinePayments\Sdk\Domain\SepaDirectDebitPaymentMethodSpecificInputBaseFactory;
 use OnlinePayments\Sdk\Domain\SepaDirectDebitPaymentProduct771SpecificInputBaseFactory;
-use Worldline\HostedCheckout\Api\Service\Mandates\MandateDataBuilderInterface;
-use Worldline\HostedCheckout\Api\TokenManagerInterface;
-use Worldline\HostedCheckout\Service\CreateHostedCheckoutRequest\SepaDirectDebitSIBuilder as HCSepaBuilder;
-use Worldline\HostedCheckout\Ui\ConfigProvider;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\RedirectPayment\Gateway\Config\Config;
+use Cawl\HostedCheckout\Api\Service\Mandates\MandateDataBuilderInterface;
+use Cawl\HostedCheckout\Api\TokenManagerInterface;
+use Cawl\HostedCheckout\Service\CreateHostedCheckoutRequest\SepaDirectDebitSIBuilder as HCSepaBuilder;
+use Cawl\HostedCheckout\Ui\ConfigProvider;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\RedirectPayment\Gateway\Config\Config;
 
 class SepaDirectDebitSIBuilder
 {

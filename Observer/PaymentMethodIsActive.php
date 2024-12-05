@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Observer;
+namespace Cawl\RedirectPayment\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Payment\Model\Method\Adapter;
-use Worldline\PaymentCore\Api\AvailableMethodCheckerInterface;
-use Worldline\RedirectPayment\Gateway\Config\Config;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
+use Cawl\PaymentCore\Api\AvailableMethodCheckerInterface;
+use Cawl\RedirectPayment\Gateway\Config\Config;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
 
 class PaymentMethodIsActive implements ObserverInterface
 {

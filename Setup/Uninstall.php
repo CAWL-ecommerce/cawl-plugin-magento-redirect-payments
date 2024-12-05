@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Setup;
+namespace Cawl\RedirectPayment\Setup;
 
 use Magento\Config\Model\ResourceModel\Config as ConfigResource;
 use Magento\Config\Model\ResourceModel\Config\Data\CollectionFactory;

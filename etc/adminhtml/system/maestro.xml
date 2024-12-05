@@ -47,7 +47,7 @@
         </field>
         <field id="allow_specific_currency" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" canRestore="1">
             <label>Payment from Applicable Currencies</label>
-            <source_model>Worldline\PaymentCore\Model\Config\Source\AllSpecificCurrencies</source_model>
+            <source_model>Cawl\PaymentCore\Model\Config\Source\AllSpecificCurrencies</source_model>
             <config_path>payment/worldline_redirect_payment_117/allow_specific_currency</config_path>
             <depends>
                 <field id="active">1</field>

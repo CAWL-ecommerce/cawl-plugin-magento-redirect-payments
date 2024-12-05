@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Ui;
+namespace Cawl\RedirectPayment\Ui;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Checkout\Model\Session;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\PaymentCore\Api\Ui\PaymentIconsProviderInterface;
-use Worldline\RedirectPayment\Gateway\Config\Config;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Api\Ui\PaymentIconsProviderInterface;
+use Cawl\RedirectPayment\Gateway\Config\Config;
 
 /**
  * @SuppressWarnings(PHPMD.CookieAndSessionMisuse)

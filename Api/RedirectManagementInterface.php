@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Api;
+namespace Cawl\RedirectPayment\Api;
 
-use Worldline\PaymentCore\Api\WebApi\Checkout\BaseCreatePaymentManagementInterface;
+use Cawl\PaymentCore\Api\WebApi\Checkout\BaseCreatePaymentManagementInterface;
 
 interface RedirectManagementInterface extends BaseCreatePaymentManagementInterface
 {

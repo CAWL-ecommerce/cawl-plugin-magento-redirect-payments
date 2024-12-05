@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Test\Integration\Payment;
+namespace Cawl\RedirectPayment\Test\Integration\Payment;
 
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Quote\Api\Data\CartInterface;
@@ -10,12 +10,12 @@ use Magento\TestFramework\Helper\Bootstrap;
 use Magento\Vault\Model\PaymentToken;
 use Magento\Vault\Model\PaymentTokenRepository;
 use PHPUnit\Framework\TestCase;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\PaymentCore\Api\QuoteResourceInterface;
-use Worldline\PaymentCore\Api\Test\Infrastructure\ServiceStubSwitcherInterface;
-use Worldline\PaymentCore\Api\Test\Infrastructure\WebhookStubSenderInterface;
-use Worldline\PaymentCore\Infrastructure\StubData\Webhook\Authorization;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Api\QuoteResourceInterface;
+use Cawl\PaymentCore\Api\Test\Infrastructure\ServiceStubSwitcherInterface;
+use Cawl\PaymentCore\Api\Test\Infrastructure\WebhookStubSenderInterface;
+use Cawl\PaymentCore\Infrastructure\StubData\Webhook\Authorization;
 
 class PlaceOrderAndSaveCardTest extends TestCase
 {

@@ -7,7 +7,7 @@
             <field id="active">1</field>
         </depends>
         <field id="global_notification" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
-            <frontend_model>Worldline\RedirectPayment\Block\Adminhtml\System\Config\MealvouchersGlobalNotification</frontend_model>
+            <frontend_model>Cawl\RedirectPayment\Block\Adminhtml\System\Config\MealvouchersGlobalNotification</frontend_model>
         </field>
         <field id="active" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1">
             <label>Enable Payment</label>
@@ -50,7 +50,7 @@
         </field>
         <field id="allow_specific_currency" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" canRestore="1">
             <label>Payment from Applicable Currencies</label>
-            <source_model>Worldline\PaymentCore\Model\Config\Source\AllSpecificCurrencies</source_model>
+            <source_model>Cawl\PaymentCore\Model\Config\Source\AllSpecificCurrencies</source_model>
             <config_path>payment/worldline_redirect_payment_5402/allow_specific_currency</config_path>
             <depends>
                 <field id="active">1</field>

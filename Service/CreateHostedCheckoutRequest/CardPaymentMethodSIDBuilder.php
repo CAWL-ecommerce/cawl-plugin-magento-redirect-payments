@@ -1,18 +1,18 @@
 <?php
 declare(strict_types=1);
 
-namespace Worldline\RedirectPayment\Service\CreateHostedCheckoutRequest;
+namespace Cawl\RedirectPayment\Service\CreateHostedCheckoutRequest;
 
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use OnlinePayments\Sdk\Domain\CardPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\CardPaymentMethodSpecificInputFactory;
-use Worldline\HostedCheckout\Api\TokenManagerInterface;
-use Worldline\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use Worldline\PaymentCore\Api\Service\CreateRequest\ThreeDSecureDataBuilderInterface;
-use Worldline\RedirectPayment\Gateway\Config\Config;
-use Worldline\RedirectPayment\Ui\ConfigProvider;
-use Worldline\RedirectPayment\WebApi\RedirectManagement;
+use Cawl\HostedCheckout\Api\TokenManagerInterface;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
+use Cawl\PaymentCore\Api\Service\CreateRequest\ThreeDSecureDataBuilderInterface;
+use Cawl\RedirectPayment\Gateway\Config\Config;
+use Cawl\RedirectPayment\Ui\ConfigProvider;
+use Cawl\RedirectPayment\WebApi\RedirectManagement;
 
 class CardPaymentMethodSIDBuilder
 {
