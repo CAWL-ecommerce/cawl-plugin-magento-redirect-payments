@@ -11,8 +11,11 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.2
+- Update the hosted-checkout CAWL module to version 1.1.2
+
 #### 1.1.1
-- Update the hosted-checkout CAWL module
+- Update the hosted-checkout CAWL module to version 1.1.1
 
 #### 1.1.0
 - Fixed validation for HTML template ID configuration. It is no longer required to have extension on HTML templates.
