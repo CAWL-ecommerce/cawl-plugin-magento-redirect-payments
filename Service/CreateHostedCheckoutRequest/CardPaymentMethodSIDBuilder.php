@@ -7,15 +7,22 @@ use Magento\Framework\Event\ManagerInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use OnlinePayments\Sdk\Domain\CardPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\CardPaymentMethodSpecificInputFactory;
+use OnlinePayments\Sdk\Domain\PaymentProduct130SpecificInput;
+use OnlinePayments\Sdk\Domain\PaymentProduct130SpecificThreeDSecure;
 use Cawl\HostedCheckout\Api\TokenManagerInterface;
+use Cawl\PaymentCore\Api\Config\GeneralSettingsConfigInterface;
 use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
 use Cawl\PaymentCore\Api\Service\CreateRequest\ThreeDSecureDataBuilderInterface;
+use Cawl\PaymentCore\Model\ThreeDSecure\ParamsHandler;
 use Cawl\RedirectPayment\Gateway\Config\Config;
 use Cawl\RedirectPayment\Ui\ConfigProvider;
 use Cawl\RedirectPayment\WebApi\RedirectManagement;
 
 class CardPaymentMethodSIDBuilder
 {
+    const CARTE_BANCAIRE_PAYMENT_ID = 130;
+    const SINGLE_AMOUNT_USE_CASE = 'single-amount';
+
     /**
      * @var Config
      */
@@ -46,12 +53,18 @@ class CardPaymentMethodSIDBuilder
      */
     private $tokenManager;
 
+    /**
+     * @var GeneralSettingsConfigInterface
+     */
+    private $generalSettings;
+
     public function __construct(
         Config $config,
         CardPaymentMethodSpecificInputFactory $cardPaymentMethodSpecificInputFactory,
         ManagerInterface $eventManager,
         ThreeDSecureDataBuilderInterface $threeDSecureDataBuilder,
         TokenManagerInterface $tokenManager,
+        GeneralSettingsConfigInterface $generalSettings,
         array $alwaysSaleProductIds = []
     ) {
         $this->config = $config;
@@ -60,6 +73,7 @@ class CardPaymentMethodSIDBuilder
         $this->threeDSecureDataBuilder = $threeDSecureDataBuilder;
         $this->alwaysSaleProductIds = $alwaysSaleProductIds;
         $this->tokenManager = $tokenManager;
+        $this->generalSettings = $generalSettings;
     }
 
     public function build(CartInterface $quote): ?CardPaymentMethodSpecificInput
@@ -80,6 +94,13 @@ class CardPaymentMethodSIDBuilder
 
         $cardPaymentMethodSpecificInput->setThreeDSecure($this->threeDSecureDataBuilder->build($quote));
 
+        if ($cardPaymentMethodSpecificInput->getPaymentProductId() === self::CARTE_BANCAIRE_PAYMENT_ID ) {
+            $paymentProduct130SpecificInput = $this->buildPaymentProduct130SpecificInput($quote);
+            if ($paymentProduct130SpecificInput) {
+                $cardPaymentMethodSpecificInput->setPaymentProduct130SpecificInput($paymentProduct130SpecificInput);
+            }
+        }
+
         if ($token = $this->tokenManager->getToken($quote)) {
             if ($this->tokenManager->isSepaToken($token)) {
                 return null;
@@ -92,6 +113,37 @@ class CardPaymentMethodSIDBuilder
         $this->eventManager->dispatch(ConfigProvider::CODE . '_card_payment_method_specific_input_builder', $args);
 
         return $cardPaymentMethodSpecificInput;
+    }
+
+    private function buildPaymentProduct130SpecificInput(CartInterface $quote): ?PaymentProduct130SpecificInput
+    {
+        $storeId = (int)$quote->getStoreId();
+
+        if (true === $this->generalSettings->isThreeDEnabled($storeId)) {
+            $paymentProduct130SpecificInput = new PaymentProduct130SpecificInput();
+            $paymentProduct130ThreeDSecure = new PaymentProduct130SpecificThreeDSecure();
+
+            $paymentProduct130ThreeDSecure->setUsecase(self::SINGLE_AMOUNT_USE_CASE);
+            $paymentProduct130ThreeDSecure->setNumberOfItems($quote->getItemsQty());
+
+            if (!$this->generalSettings->isAuthExemptionEnabled($storeId)) {
+                $paymentProduct130ThreeDSecure->setAcquirerExemption(false);
+            } elseif ($this->generalSettings->isAuthExemptionEnabled($storeId)) {
+                $threeDSExemptionType = $this->generalSettings->getAuthExemptionType($storeId);
+                $threeDSExemptedAmount = $threeDSExemptionType === ParamsHandler::LOW_VALUE_EXEMPTION_TYPE ?
+                    $this->generalSettings->getAuthLowValueAmount($storeId) :
+                    $this->generalSettings->getAuthTransactionRiskAnalysisAmount($storeId);
+
+                (float)$threeDSExemptedAmount >= (float)$quote->getGrandTotal() ?
+                    $paymentProduct130ThreeDSecure->setAcquirerExemption(true) :
+                    $paymentProduct130ThreeDSecure->setAcquirerExemption(false);
+            }
+            $paymentProduct130SpecificInput->setThreeDSecure($paymentProduct130ThreeDSecure);
+
+            return $paymentProduct130SpecificInput;
+        }
+
+        return null;
     }
 
     private function getAuthorizationMode(int $payProductId, int $storeId): string
