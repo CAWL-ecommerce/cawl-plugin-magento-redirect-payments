@@ -11,6 +11,9 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.4
+- Add 3DS exemption types to the plugin
+- 
 #### 1.1.3
 - Update the hosted-checkout CAWL module to version 1.1.3
 
