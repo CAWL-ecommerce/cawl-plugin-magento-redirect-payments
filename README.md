@@ -11,6 +11,9 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.7
+- Update the hosted-checkout CAWL module to version 1.1.7
+
 #### 1.1.6
 - Update the hosted-checkout CAWL module to version 1.1.6
 
