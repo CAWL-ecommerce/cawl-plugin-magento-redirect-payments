@@ -11,6 +11,10 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.8
+- Add compatibility with PHP 8.4
+- Update SDK version
+
 #### 1.1.7
 - Update the hosted-checkout CAWL module to version 1.1.7
 
