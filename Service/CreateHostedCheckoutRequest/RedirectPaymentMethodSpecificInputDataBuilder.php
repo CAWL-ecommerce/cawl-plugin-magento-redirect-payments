@@ -8,6 +8,7 @@ use Magento\Quote\Api\Data\CartInterface;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInputFactory;
 use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5408SpecificInputFactory;
+use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
 use Cawl\RedirectPayment\Gateway\Config\Config;
 use Cawl\RedirectPayment\Ui\ConfigProvider;
 use Cawl\RedirectPayment\WebApi\RedirectManagement;
@@ -53,12 +54,18 @@ class RedirectPaymentMethodSpecificInputDataBuilder
         $storeId = (int)$quote->getStoreId();
         /** @var RedirectPaymentMethodSpecificInput $redirectPaymentMethodSpecificInput */
         $redirectPaymentMethodSpecificInput = $this->redirectPaymentMethodSpecificInputFactory->create();
+        $payProductId = $quote->getPayment()->getAdditionalInformation(RedirectManagement::PAYMENT_PRODUCT_ID);
         $authMode = $this->config->getAuthorizationMode();
-        $redirectPaymentMethodSpecificInput->setRequiresApproval($authMode !== Config::AUTHORIZATION_MODE_SALE);
+        if ($payProductId && ($payProductId === PaymentProductsDetailsInterface::MEALVOUCHERS_PRODUCT_ID
+                || $payProductId === PaymentProductsDetailsInterface::CHEQUE_VACANCES_PRODUCT_ID)
+        ) {
+            $redirectPaymentMethodSpecificInput->setRequiresApproval(false);
+        } else {
+            $redirectPaymentMethodSpecificInput->setRequiresApproval($authMode !== Config::AUTHORIZATION_MODE_SALE);
+        }
         $redirectPaymentMethodSpecificInput->setPaymentOption(
             $this->config->getOneyPaymentOption($storeId)
         );
-        $payProductId = $quote->getPayment()->getAdditionalInformation(RedirectManagement::PAYMENT_PRODUCT_ID);
         if ($payProductId) {
             $redirectPaymentMethodSpecificInput->setPaymentProductId((int)$payProductId);
         }
