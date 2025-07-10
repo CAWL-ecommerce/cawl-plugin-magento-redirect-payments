@@ -90,6 +90,12 @@ class ConfigProvider implements ConfigProviderInterface
                 continue;
             }
 
+            if ($payProductId === PaymentProductsDetailsInterface::CHEQUE_VACANCES_CONNECT_PRODUCT_ID) {
+                if (!$this->isCustomerDataValid()) {
+                    continue;
+                }
+            }
+
             if ($payProductId === PaymentProductsDetailsInterface::SEPA_DIRECT_DEBIT_PRODUCT_ID
                 && (float)$quote->getGrandTotal() < 0.00001
             ) {
@@ -108,5 +114,19 @@ class ConfigProvider implements ConfigProviderInterface
         }
 
         return $payProducts;
+    }
+
+    /**
+     * Validate customer eligibility for using the Mealvoucher payment method.
+     *
+     * @return bool
+     *
+     * @throws NoSuchEntityException
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    private function isCustomerDataValid()
+    {
+        return $this->checkoutSession->getQuote()->getData()['customer_id'] &&
+            $this->checkoutSession->getQuote()->getData()['customer_email'];
     }
 }
