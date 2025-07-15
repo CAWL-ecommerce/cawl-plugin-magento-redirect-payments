@@ -8,7 +8,7 @@ use Magento\Quote\Api\Data\CartInterface;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInputFactory;
 use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5408SpecificInputFactory;
-use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5402SpecificInputFactory;
+use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5403SpecificInputFactory;
 use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
 use Cawl\RedirectPayment\Gateway\Config\Config;
 use Cawl\RedirectPayment\Ui\ConfigProvider;
@@ -39,22 +39,22 @@ class RedirectPaymentMethodSpecificInputDataBuilder
     private $paymentProduct5408SIFactory;
 
     /**
-     * @var RedirectPaymentProduct5402SpecificInputFactory
+     * @var RedirectPaymentProduct5403SpecificInputFactory
      */
-    private $paymentProduct5402SIFactory;
+    private $paymentProduct5403SIFactory;
 
     public function __construct(
         Config $config,
         ManagerInterface $eventManager,
         RedirectPaymentMethodSpecificInputFactory $redirectPaymentMethodSpecificInputFactory,
         RedirectPaymentProduct5408SpecificInputFactory $paymentProduct5408SIFactory,
-        RedirectPaymentProduct5402SpecificInputFactory $paymentProduct5402SIFactory
+        RedirectPaymentProduct5403SpecificInputFactory $paymentProduct5403SIFactory
     ) {
         $this->config = $config;
         $this->eventManager = $eventManager;
         $this->redirectPaymentMethodSpecificInputFactory = $redirectPaymentMethodSpecificInputFactory;
         $this->paymentProduct5408SIFactory = $paymentProduct5408SIFactory;
-        $this->paymentProduct5402SIFactory = $paymentProduct5402SIFactory;
+        $this->paymentProduct5403SIFactory = $paymentProduct5403SIFactory;
     }
 
     public function build(CartInterface $quote): RedirectPaymentMethodSpecificInput
@@ -82,9 +82,9 @@ class RedirectPaymentMethodSpecificInputDataBuilder
         $paymentProduct5408SI->setInstantPaymentOnly($this->config->getBankTransferMode($storeId));
         $redirectPaymentMethodSpecificInput->setPaymentProduct5408SpecificInput($paymentProduct5408SI);
 
-        $paymentProduct5402SI = $this->paymentProduct5402SIFactory->create();
-        $paymentProduct5402SI->setCompleteRemainingPaymentAmount(true);
-        $redirectPaymentMethodSpecificInput->setPaymentProduct5402SpecificInput($paymentProduct5402SI);
+        $paymentProduct5403SI = $this->paymentProduct5403SIFactory->create();
+        $paymentProduct5403SI->setCompleteRemainingPaymentAmount(true);
+        $redirectPaymentMethodSpecificInput->setPaymentProduct5403SpecificInput($paymentProduct5403SI);
 
         $args = ['quote' => $quote, self::RP_METHOD_SPECIFIC_INPUT => $redirectPaymentMethodSpecificInput];
         $this->eventManager->dispatch(ConfigProvider::CODE . '_redirect_payment_method_specific_input_builder', $args);
