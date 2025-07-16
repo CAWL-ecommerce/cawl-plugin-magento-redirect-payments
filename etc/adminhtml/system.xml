@@ -116,6 +116,7 @@
                 <include path="Cawl_RedirectPayment::system/bank_transfer.xml"/>
                 <include path="Cawl_RedirectPayment::system/bizum.xml"/>
                 <include path="Cawl_RedirectPayment::system/carte_bancaire.xml"/>
+                <include path="Cawl_RedirectPayment::system/cheque_vacances_connect.xml"/>
                 <include path="Cawl_RedirectPayment::system/cpay.xml"/>
                 <include path="Cawl_RedirectPayment::system/diners_club.xml"/>
                 <include path="Cawl_RedirectPayment::system/eps.xml"/>
