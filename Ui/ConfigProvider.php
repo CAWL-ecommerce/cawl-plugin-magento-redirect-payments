@@ -92,6 +92,12 @@ class ConfigProvider implements ConfigProviderInterface
                 continue;
             }
 
+            if ($payProductId === PaymentProductsDetailsInterface::CHEQUE_VACANCES_CONNECT_PRODUCT_ID) {
+                if (!$this->isCustomerDataValid()) {
+                    continue;
+                }
+            }
+
             if ($payProductId === PaymentProductsDetailsInterface::MEALVOUCHERS_PRODUCT_ID) {
                 if (!$this->isEligibleForMealVoucher() || !$this->isCustomerDataValid()) {
                     continue;
@@ -119,6 +125,20 @@ class ConfigProvider implements ConfigProviderInterface
     }
 
     /**
+     * Validate customer eligibility for using the Mealvoucher payment method.
+     *
+     * @return bool
+     *
+     * @throws NoSuchEntityException
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    private function isCustomerDataValid()
+    {
+        return $this->checkoutSession->getQuote()->getData()['customer_id'] &&
+            $this->checkoutSession->getQuote()->getData()['customer_email'];
+    }
+
+    /**
      * @return bool
      */
     private function isEligibleForMealVoucher()
@@ -132,20 +152,6 @@ class ConfigProvider implements ConfigProviderInterface
         }
 
         return false;
-    }
-
-    /**
-     * Validate customer eligibility for using the Mealvoucher payment method.
-     *
-     * @return bool
-     *
-     * @throws NoSuchEntityException
-     * @throws \Magento\Framework\Exception\LocalizedException
-     */
-    private function isCustomerDataValid()
-    {
-        return $this->checkoutSession->getQuote()->getData()['customer_id'] &&
-            $this->checkoutSession->getQuote()->getData()['customer_email'];
     }
 
     /**

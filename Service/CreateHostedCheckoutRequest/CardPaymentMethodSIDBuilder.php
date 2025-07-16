@@ -95,7 +95,7 @@ class CardPaymentMethodSIDBuilder
 
         $cardPaymentMethodSpecificInput->setThreeDSecure($this->threeDSecureDataBuilder->build($quote));
 
-        if ($cardPaymentMethodSpecificInput->getPaymentProductId() === self::CARTE_BANCAIRE_PAYMENT_ID ) {
+        if ($cardPaymentMethodSpecificInput->getPaymentProductId() === self::CARTE_BANCAIRE_PAYMENT_ID) {
             $paymentProduct130SpecificInput = $this->buildPaymentProduct130SpecificInput($quote);
             if ($paymentProduct130SpecificInput) {
                 $cardPaymentMethodSpecificInput->setPaymentProduct130SpecificInput($paymentProduct130SpecificInput);
@@ -125,7 +125,8 @@ class CardPaymentMethodSIDBuilder
             $paymentProduct130ThreeDSecure = new PaymentProduct130SpecificThreeDSecure();
 
             $paymentProduct130ThreeDSecure->setUsecase(self::SINGLE_AMOUNT_USE_CASE);
-            $numberOfItems = $quote->getItemsQty() <= self::MAX_SUPPORTED_NUMBER_OF_ITEMS ? $quote->getItemsQty() : self::MAX_SUPPORTED_NUMBER_OF_ITEMS;
+            $numberOfItems = $quote->getItemsQty() <= self::MAX_SUPPORTED_NUMBER_OF_ITEMS ?
+                $quote->getItemsQty() : self::MAX_SUPPORTED_NUMBER_OF_ITEMS;
             $paymentProduct130ThreeDSecure->setNumberOfItems($numberOfItems);
 
             if (!$this->generalSettings->isAuthExemptionEnabled($storeId)) {
