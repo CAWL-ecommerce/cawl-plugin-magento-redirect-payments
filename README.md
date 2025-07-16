@@ -11,6 +11,10 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.9
+- Add Mealvoucher payment product
+- Add CVCO (Cheque Vacances Connect Online) payment product
+
 #### 1.1.8
 - Add compatibility with PHP 8.4
 - Update SDK version
