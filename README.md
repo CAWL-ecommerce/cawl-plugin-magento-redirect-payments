@@ -11,6 +11,9 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.12
+- Fix comma separated email validation in notification settings
+
 #### 1.1.11
 - Fix issue with showing split payment amounts on order details page for Mealvoucher transactions
 - Fix issue with showing Mealvoucher in full redirect
