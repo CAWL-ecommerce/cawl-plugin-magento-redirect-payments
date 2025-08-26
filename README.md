@@ -11,6 +11,9 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.15
+- Add quote ID to request payload
+
 #### 1.1.14
 - Fix issue with sending email
 
