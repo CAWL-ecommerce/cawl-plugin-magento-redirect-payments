@@ -61,8 +61,10 @@ class MobilePaymentMethodSpecificInputDataBuilder
         return $mobilePaymentMethodSpecificInput;
     }
 
-    private function buildPaymentProduct320SpecificInput($storeId, $baseSubtotalAmount): MobilePaymentProduct320SpecificInput
-    {
+    private function buildPaymentProduct320SpecificInput(
+        $storeId,
+        $baseSubtotalAmount
+    ): MobilePaymentProduct320SpecificInput {
         $paymentProduct320SpecificInput = new MobilePaymentProduct320SpecificInput();
         $gPayThreeDSecure = new GPayThreeDSecure();
 
@@ -90,8 +92,12 @@ class MobilePaymentMethodSpecificInputDataBuilder
                 }
             }
             $gPayRedirectionData = new RedirectionData();
-            $gPayRedirectionData->setReturnUrl($this->generalSettings->getReturnUrl(
-                HCSpecificInputDataBuilder::RETURN_URL, $storeId));
+            $gPayRedirectionData->setReturnUrl(
+                $this->generalSettings->getReturnUrl(
+                    HCSpecificInputDataBuilder::RETURN_URL,
+                    $storeId
+                )
+            );
             $gPayThreeDSecure->setRedirectionData($gPayRedirectionData);
         }
         $paymentProduct320SpecificInput->setThreeDSecure($gPayThreeDSecure);

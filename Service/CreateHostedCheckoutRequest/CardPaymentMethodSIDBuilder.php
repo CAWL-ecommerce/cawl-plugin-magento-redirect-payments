@@ -18,6 +18,9 @@ use Cawl\RedirectPayment\Gateway\Config\Config;
 use Cawl\RedirectPayment\Ui\ConfigProvider;
 use Cawl\RedirectPayment\WebApi\RedirectManagement;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class CardPaymentMethodSIDBuilder
 {
     const CARTE_BANCAIRE_PAYMENT_ID = 130;
@@ -90,7 +93,7 @@ class CardPaymentMethodSIDBuilder
         }
 
         $cardPaymentMethodSpecificInput->setAuthorizationMode(
-            $this->getAuthorizationMode((int) $payProductId, $storeId)
+            $this->getAuthorizationMode($payProductId, $storeId)
         );
 
         $cardPaymentMethodSpecificInput->setThreeDSecure($this->threeDSecureDataBuilder->build($quote));
@@ -125,8 +128,9 @@ class CardPaymentMethodSIDBuilder
             $paymentProduct130ThreeDSecure = new PaymentProduct130SpecificThreeDSecure();
 
             $paymentProduct130ThreeDSecure->setUsecase(self::SINGLE_AMOUNT_USE_CASE);
-            $numberOfItems = $quote->getItemsQty() <= self::MAX_SUPPORTED_NUMBER_OF_ITEMS ?
-                $quote->getItemsQty() : self::MAX_SUPPORTED_NUMBER_OF_ITEMS;
+            $numberOfItems = $quote->getItemsQty() <= self::MAX_SUPPORTED_NUMBER_OF_ITEMS
+                ? $quote->getItemsQty()
+                : self::MAX_SUPPORTED_NUMBER_OF_ITEMS;
             $paymentProduct130ThreeDSecure->setNumberOfItems($numberOfItems);
 
             if (!$this->generalSettings->isAuthExemptionEnabled($storeId)) {
