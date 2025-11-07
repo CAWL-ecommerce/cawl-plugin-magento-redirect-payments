@@ -11,6 +11,10 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.18
+- Remove MealVouchers configuration from hosted checkout
+- Fix mobile payment method information not being shown in order details
+
 #### 1.1.17
 - Fix print invoice issue
 - Update payment brand logos
