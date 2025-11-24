@@ -137,6 +137,7 @@
                 <include path="Cawl_RedirectPayment::system/multibanco.xml"/>
                 <include path="Cawl_RedirectPayment::system/oney3x-4x.xml"/>
                 <include path="Cawl_RedirectPayment::system/oney_financement_long.xml"/>
+                <include path="Cawl_RedirectPayment::system/pledg.xml"/>
                 <include path="Cawl_RedirectPayment::system/oneybrandedgiftcard.xml"/>
                 <include path="Cawl_RedirectPayment::system/paypal.xml"/>
                 <include path="Cawl_RedirectPayment::system/przelewy24.xml"/>
