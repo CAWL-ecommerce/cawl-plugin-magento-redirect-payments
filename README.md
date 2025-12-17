@@ -11,6 +11,9 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+#### 1.1.21
+- Add configuration for automatic registration of webhook URLs
+
 #### 1.1.20
 - Manage exemptions for french markets
 
