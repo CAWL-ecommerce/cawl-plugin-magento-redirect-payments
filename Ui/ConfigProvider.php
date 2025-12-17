@@ -219,7 +219,6 @@ class ConfigProvider implements ConfigProviderInterface
         return false;
     }
 
-
     /**
      * Check if Pledg payment method can be activated.
      *
