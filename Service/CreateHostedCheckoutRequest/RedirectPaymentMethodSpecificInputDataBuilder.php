@@ -8,15 +8,18 @@ use Magento\Quote\Api\Data\CartInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInput;
 use OnlinePayments\Sdk\Domain\RedirectPaymentMethodSpecificInputFactory;
+use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5402SpecificInputFactory;
 use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5408SpecificInputFactory;
 use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5403SpecificInputFactory;
+use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5300SpecificInputFactory;
 use Cawl\PaymentCore\Api\Data\PaymentProductsDetailsInterface;
-use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5402SpecificInputFactory;
 use Cawl\RedirectPayment\Gateway\Config\Config;
 use Cawl\RedirectPayment\Ui\ConfigProvider;
 use Cawl\RedirectPayment\WebApi\RedirectManagement;
-use OnlinePayments\Sdk\Domain\RedirectPaymentProduct5300SpecificInputFactory;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class RedirectPaymentMethodSpecificInputDataBuilder
 {
     public const RP_METHOD_SPECIFIC_INPUT = 'redirect_payment_method_specific_input';
@@ -62,9 +65,9 @@ class RedirectPaymentMethodSpecificInputDataBuilder
     private $storeManager;
 
     public function __construct(
-        Config $config,
-        ManagerInterface $eventManager,
-        RedirectPaymentMethodSpecificInputFactory $redirectPaymentMethodSpecificInputFactory,
+        Config                                         $config,
+        ManagerInterface                               $eventManager,
+        RedirectPaymentMethodSpecificInputFactory      $redirectPaymentMethodSpecificInputFactory,
         RedirectPaymentProduct5408SpecificInputFactory $paymentProduct5408SIFactory,
         RedirectPaymentProduct5403SpecificInputFactory $paymentProduct5403SIFactory,
         RedirectPaymentProduct5402SpecificInputFactory $paymentProduct5402SIFactory,
