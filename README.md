@@ -11,6 +11,9 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+### 1.1.24
+- Removed Mealvouchers logo from checkout page when using "Hosted Checkout (redirect to Worldline)"
+
 #### 1.1.23
 - Fix: Do not allow usage of decimals in the object cardPaymentMethodSpecificInput.paymentProduct130SpecificInput.threeDSecure.numberOfItems
 
