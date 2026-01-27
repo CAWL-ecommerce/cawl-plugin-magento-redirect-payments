@@ -11,6 +11,9 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+### 1.1.25
+- Improved exemptions capabilities related to exemption types (added: No challenge request)
+
 ### 1.1.24
 - Removed Mealvouchers logo from checkout page when using "Hosted Checkout (redirect to Worldline)"
 
