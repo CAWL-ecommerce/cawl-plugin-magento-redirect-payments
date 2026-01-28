@@ -61,66 +61,81 @@ class MobilePaymentMethodSpecificInputDataBuilder
         return $mobilePaymentMethodSpecificInput;
     }
 
-    private function buildPaymentProduct320SpecificInput(
-        $storeId,
-        $baseSubtotalAmount
-    ): MobilePaymentProduct320SpecificInput {
+    private function buildPaymentProduct320SpecificInput(int $storeId, float $baseSubtotalAmount):
+        MobilePaymentProduct320SpecificInput
+    {
         $paymentProduct320SpecificInput = new MobilePaymentProduct320SpecificInput();
         $gPayThreeDSecure = new GPayThreeDSecure();
 
         if (!$this->generalSettings->isThreeDEnabled($storeId)) {
             $gPayThreeDSecure->setSkipAuthentication(true);
         } else {
-            if (!$this->generalSettings->isEnforceAuthEnabled($storeId)
-                && !$this->generalSettings->isAuthExemptionEnabled($storeId)) {
-                $gPayThreeDSecure->setChallengeIndicator(self::CHALLENGE_INDICATOR_NO_PREFERENCE);
-                $gPayThreeDSecure->setSkipAuthentication(false);
-            } elseif ($this->generalSettings->isEnforceAuthEnabled($storeId)) {
-                $gPayThreeDSecure->setChallengeIndicator(self::CHALLENGE_INDICATOR_REQUIRED);
-                $gPayThreeDSecure->setSkipAuthentication(false);
-            } elseif ($this->generalSettings->isAuthExemptionEnabled($storeId)) {
-                $threeDSExemptionType = $this->generalSettings->getAuthExemptionType($storeId);
-                $threeDSExemptedAmount = 0;
-
-                if ($threeDSExemptionType === ParamsHandler::NONE_EXEMPTION_TYPE) {
-                    $threeDSExemptedAmount = $this->generalSettings->getAuthNoChallengeAmount($storeId);
-                }
-
-                if ($threeDSExemptionType === ParamsHandler::LOW_VALUE_EXEMPTION_TYPE) {
-                    $threeDSExemptedAmount = $this->generalSettings->getAuthLowValueAmount($storeId);
-                }
-
-                if ($threeDSExemptionType === ParamsHandler::TRANSACTION_RISK_ANALYSIS_EXEMPTION_TYPE) {
-                    $threeDSExemptedAmount = $this->generalSettings->getAuthTransactionRiskAnalysisAmount($storeId);
-                }
-
-                $gPayThreeDSecure->setSkipAuthentication(false);
-
-                if ((float)$threeDSExemptedAmount >= (float)$baseSubtotalAmount) {
-                    $gPayThreeDSecure->setExemptionRequest($threeDSExemptionType);
-                    $gPayThreeDSecure->setChallengeIndicator(
-                        $threeDSExemptionType === ParamsHandler::TRANSACTION_RISK_ANALYSIS_EXEMPTION_TYPE
-                            ? ParamsHandler::ANALYSIS_PERFORMED_CHALLENGE_INDICATOR
-                            : ParamsHandler::NO_CHALLENGE_REQUESTED_CHALLENGE_INDICATOR
-                    );
-                }
-
-                if ($threeDSExemptionType === ParamsHandler::NONE_EXEMPTION_TYPE) {
-                    $gPayThreeDSecure->setChallengeIndicator(ParamsHandler::NO_CHALLENGE_REQUESTED_CHALLENGE_INDICATOR);
-                }
-            }
-
-            $gPayRedirectionData = new RedirectionData();
-            $gPayRedirectionData->setReturnUrl(
-                $this->generalSettings->getReturnUrl(
-                    HCSpecificInputDataBuilder::RETURN_URL,
-                    $storeId
-                )
-            );
-            $gPayThreeDSecure->setRedirectionData($gPayRedirectionData);
+            $this->configureThreeDSecure($gPayThreeDSecure, $storeId, $baseSubtotalAmount);
+            $this->applyRedirectionData($gPayThreeDSecure, $storeId);
         }
+
         $paymentProduct320SpecificInput->setThreeDSecure($gPayThreeDSecure);
 
         return $paymentProduct320SpecificInput;
+    }
+
+    private function configureThreeDSecure(GPayThreeDSecure $gPayThreeDSecure, int $storeId, float $baseSubtotalAmount):
+        void
+    {
+        if (!$this->generalSettings->isEnforceAuthEnabled($storeId)
+            && !$this->generalSettings->isAuthExemptionEnabled($storeId)) {
+            $gPayThreeDSecure->setChallengeIndicator(self::CHALLENGE_INDICATOR_NO_PREFERENCE);
+            $gPayThreeDSecure->setSkipAuthentication(false);
+        } elseif ($this->generalSettings->isEnforceAuthEnabled($storeId)) {
+            $gPayThreeDSecure->setChallengeIndicator(self::CHALLENGE_INDICATOR_REQUIRED);
+            $gPayThreeDSecure->setSkipAuthentication(false);
+        } elseif ($this->generalSettings->isAuthExemptionEnabled($storeId)) {
+            $threeDSExemptionType = $this->generalSettings->getAuthExemptionType($storeId);
+            $threeDSExemptedAmount = $this->getExemptedAmount($threeDSExemptionType, $storeId);
+            $gPayThreeDSecure->setSkipAuthentication(false);
+
+            if ((float)$threeDSExemptedAmount >= $baseSubtotalAmount) {
+                $gPayThreeDSecure->setExemptionRequest($threeDSExemptionType);
+                $gPayThreeDSecure->setChallengeIndicator($this->resolveChallengeIndicator($threeDSExemptionType));
+            }
+
+            if ($threeDSExemptionType === ParamsHandler::NONE_EXEMPTION_TYPE) {
+                $gPayThreeDSecure->setChallengeIndicator(ParamsHandler::NO_CHALLENGE_REQUESTED_CHALLENGE_INDICATOR);
+            }
+        }
+    }
+
+    private function getExemptedAmount(string $type, int $storeId): string
+    {
+        switch ($type) {
+            case ParamsHandler::NONE_EXEMPTION_TYPE:
+                return $this->generalSettings->getAuthNoChallengeAmount($storeId);
+            case ParamsHandler::LOW_VALUE_EXEMPTION_TYPE:
+                return $this->generalSettings->getAuthLowValueAmount($storeId);
+            case ParamsHandler::TRANSACTION_RISK_ANALYSIS_EXEMPTION_TYPE:
+                return $this->generalSettings->getAuthTransactionRiskAnalysisAmount($storeId);
+            default:
+                return "0";
+        }
+    }
+
+    private function resolveChallengeIndicator(string $type): string
+    {
+        return $type === ParamsHandler::TRANSACTION_RISK_ANALYSIS_EXEMPTION_TYPE
+            ? ParamsHandler::ANALYSIS_PERFORMED_CHALLENGE_INDICATOR
+            : ParamsHandler::NO_CHALLENGE_REQUESTED_CHALLENGE_INDICATOR;
+    }
+
+    private function applyRedirectionData(GPayThreeDSecure $gPayThreeDSecure, int $storeId): void
+    {
+        $gPayRedirectionData = new RedirectionData();
+        $gPayRedirectionData->setReturnUrl(
+            $this->generalSettings->getReturnUrl(
+                HCSpecificInputDataBuilder::RETURN_URL,
+                $storeId
+            )
+        );
+
+        $gPayThreeDSecure->setRedirectionData($gPayRedirectionData);
     }
 }
