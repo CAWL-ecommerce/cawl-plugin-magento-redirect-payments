@@ -12,7 +12,7 @@ This solution is also included into [main plugin for adobe commerce](https://git
 ### Change log:
 
 ### 1.1.26
-- Improved exemptions capabilities
+- Fix: Stability for 3DS exemption capabilities
 
 ### 1.1.25
 - Improved exemptions capabilities related to 3DS exemption types
