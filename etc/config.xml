@@ -145,7 +145,7 @@
             </worldline_redirect_payment_320>
             <worldline_redirect_payment_809>
                 <model>Cawl\RedirectPayment\Model\Method\AdapteriDEAL\Virtual</model>
-                <title>iDEAL</title>
+                <title>iDEAL | Wero</title>
                 <sort_order>130</sort_order>
                 <allowspecific>0</allowspecific>
                 <allow_specific_currency>0</allow_specific_currency>
@@ -283,7 +283,7 @@
             </worldline_redirect_payment_840>
             <worldline_redirect_payment_5300>
                 <model>Cawl\RedirectPayment\Model\Method\AdapterPledg\Virtual</model>
-                <title>Pledg</title>
+                <title>Sofinco</title>
                 <sort_order>310</sort_order>
                 <allowspecific>0</allowspecific>
                 <allow_specific_currency>0</allow_specific_currency>

@@ -11,11 +11,18 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+### 1.1.29
+- Updated: Change iDEAL logo and label
+- Updated: Branding of Pledg changed to Sofinco
+
 ### 1.1.28
 - Fix order creation when 3DS exemption configuration is disabled
 
 ### 1.1.27
-- Improved order creation process when there is an amount discrepancy
+- Improved: Orders with an amount discrepancy will now be created in “payment_review” state
+- Improved: Round final price to two decimals when evaluating an amount discrepancy
+- Fixed: Inconsistency between the order's status and state during webhook processing
+- Fixed: Improper modification of the order state in display blocks
 
 ### 1.1.26
 - Added: new 3-D Secure exemption flow (preference for no challenge)

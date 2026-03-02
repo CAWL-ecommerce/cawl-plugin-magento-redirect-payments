@@ -2170,7 +2170,7 @@
     </virtualType>
     <!-- Cheque Vacances Connect -->
 
-    <!-- ======================= PLEDG REDIRECT PAYMENT METHOD ======================= -->
+    <!-- ======================= PLEDG (SOFINCO) REDIRECT PAYMENT METHOD ======================= -->
 
     <virtualType name="Cawl\RedirectPayment\Model\Method\AdapterPledg\Virtual"
                  type="Cawl\RedirectPayment\Model\Method\Adapter\Virtual">
