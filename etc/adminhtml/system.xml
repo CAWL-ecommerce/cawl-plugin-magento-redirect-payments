@@ -126,6 +126,7 @@
                 <include path="Cawl_RedirectPayment::system/illicado.xml"/>
                 <include path="Cawl_RedirectPayment::system/intersolve.xml"/>
                 <include path="Cawl_RedirectPayment::system/jcb.xml"/>
+                <include path="Cawl_RedirectPayment::system/linxo_connect.xml"/>
                 <include path="Cawl_RedirectPayment::system/klarna_bank_transfer.xml"/>
                 <include path="Cawl_RedirectPayment::system/klarna_direct_debit.xml"/>
                 <include path="Cawl_RedirectPayment::system/klarna_financing.xml"/>
