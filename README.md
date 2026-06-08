@@ -11,6 +11,16 @@ This solution is also included into [main plugin for adobe commerce](https://git
 
 ### Change log:
 
+### 1.1.39
+- Added: Soft-delete handling for quote-linked tables
+
+### 1.1.38
+- Fixed: Support new PAYID format
+
+### 1.1.37
+- Fixed: Fix the issue with cart staying active despite the order being placed
+- Fixed: Add check if the store is connected to CAWL before retrieving products from API
+
 ### 1.1.36
 - Added: Configuration option to skip the CAWL payment confirmation page
 - Fixed: Mealvouchers product type mapping and line item adjustments
