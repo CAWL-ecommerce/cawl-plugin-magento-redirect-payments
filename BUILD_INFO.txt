@@ -1,1 +1,1 @@
-Built from Worldline-Plugins/cawl-plugin-magento-redirect-payments@v1.1.41 on Tue Jul 21 15:23:50 UTC 2026
+Built from Worldline-Plugins/cawl-plugin-magento-redirect-payments@v1.1.42 on Wed Aug  5 13:14:12 UTC 2026
