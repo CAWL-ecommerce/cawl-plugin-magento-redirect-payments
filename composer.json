@@ -4,10 +4,10 @@
     "require": {
         "php": ">=7.3",
         "ext-json": "*",
-        "cawl/module-magento-payment-hosted-checkout": "1.1.46"
+        "cawl/module-magento-payment-hosted-checkout": "1.1.47"
     },
     "type": "magento2-module",
-    "version": "1.1.46",
+    "version": "1.1.47",
     "license": ["MIT"],
     "authors": [
         {
