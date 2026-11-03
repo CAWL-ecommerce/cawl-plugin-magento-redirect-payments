@@ -157,6 +157,7 @@
                 <include path="Cawl_RedirectPayment::system/union_pay_int.xml"/>
                 <include path="Cawl_RedirectPayment::system/visa.xml"/>
                 <include path="Cawl_RedirectPayment::system/wechat_pay.xml"/>
+                <include path="Cawl_RedirectPayment::system/wero.xml"/>
             </group>
         </section>
     </system>
