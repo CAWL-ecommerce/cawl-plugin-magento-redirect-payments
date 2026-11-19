@@ -151,6 +151,7 @@
                 <include path="Cawl_RedirectPayment::system/pledg.xml"/>
                 <include path="Cawl_RedirectPayment::system/oneybrandedgiftcard.xml"/>
                 <include path="Cawl_RedirectPayment::system/paypal.xml"/>
+                <include path="Cawl_RedirectPayment::system/postfinance_pay.xml"/>
                 <include path="Cawl_RedirectPayment::system/przelewy24.xml"/>
                 <include path="Cawl_RedirectPayment::system/sepa_direct_debit.xml"/>
                 <include path="Cawl_RedirectPayment::system/twint.xml"/>
